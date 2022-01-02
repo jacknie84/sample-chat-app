@@ -1,5 +1,5 @@
 # 채팅 앱 예제
 
-## Beackend - String Boot (Kotlin)
+## Beackend - Spring Boot (Kotlin)
 
 ## Frontend - NextJS (TS)
