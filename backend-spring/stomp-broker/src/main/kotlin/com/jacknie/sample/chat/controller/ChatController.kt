@@ -1,4 +1,4 @@
-package com.jacknie.sample.chat.stomp.controller
+package com.jacknie.sample.chat.controller
 
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.handler.annotation.SendTo
