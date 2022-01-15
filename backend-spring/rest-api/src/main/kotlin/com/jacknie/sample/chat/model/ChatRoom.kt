@@ -1,6 +1,5 @@
 package com.jacknie.sample.chat.model
 
-import com.fasterxml.jackson.annotation.JsonFormat
 import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
@@ -30,7 +29,6 @@ data class ChatRoom(
     /**
      * 채팅방 생성 일시
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     var createdDate: LocalDateTime? = null,
 
     /**
