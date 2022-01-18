@@ -28,7 +28,7 @@ class WebFluxConfiguration(
             GET("/categories", chatCategoryHandler::getChatCategories)
             POST("/rooms", chatRoomHandler::postChatRoom)
             GET("/rooms/{id}", chatRoomHandler::getChatRoom)
-            GET("/rooms/page", chatRoomHandler::getChatRoomPage)
+            GET("/rooms", chatRoomHandler::getChatRooms)
         }
     }
 

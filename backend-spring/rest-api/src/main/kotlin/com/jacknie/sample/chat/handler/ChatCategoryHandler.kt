@@ -18,8 +18,8 @@ class ChatCategoryHandler(
 
     fun postChatCategory(request: ServerRequest): Mono<ServerResponse> {
         return validation.bodyToMono<CreateChatCategory>(request)
-            .map { ChatCategory(name = it.name, parentId = it.parentId) }
             .flatMap { validateParentId(it) }
+            .map { ChatCategory(name = it.name, parentId = it.parentId) }
             .flatMap { chatCategoryRepository.save(it) }
             .map { request.uriBuilder().path("/{id}").build(it.id) }
             .flatMap { ServerResponse.created(it).build() }
@@ -43,12 +43,13 @@ class ChatCategoryHandler(
 
     private fun getChatCategoryFilter(queryParams: MultiValueMap<String, String>): Mono<ChatCategoryFilter> {
         val ids = queryParams["ids"]?.map { validation.toLong(it, "cannot bind ids(${it})") }?: emptyList()
+        val keyword = queryParams["keyword"]?.first()
         return Flux.concat(ids).collectList()
-            .map { ChatCategoryFilter(ids = it.toSet()) }
+            .map { ChatCategoryFilter(ids = it.toSet(), keyword = keyword) }
             .map { validation.validate(it) }
     }
 
-    private fun validateParentId(category: ChatCategory): Mono<ChatCategory> {
+    private fun validateParentId(category: CreateChatCategory): Mono<CreateChatCategory> {
         val categoryMono = Mono.just(category);
         val parentId = category.parentId
         return if (parentId != null) {

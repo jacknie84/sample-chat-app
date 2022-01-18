@@ -34,11 +34,11 @@ class ChatRoomHandler(
             .switchIfEmpty(ServerResponse.notFound().build())
     }
 
-    fun getChatRoomPage(request: ServerRequest): Mono<ServerResponse> {
+    fun getChatRooms(request: ServerRequest): Mono<ServerResponse> {
         val queryParams = request.queryParams()
         val filter = getChatRoomFilter(queryParams)
         val pageable = getPageable(queryParams)
-        return chatRoomRepository.findAll(filter, pageable).flatMap { ServerResponse.ok().bodyValue(it) }
+        return chatRoomRepository.findAll(filter, pageable).flatMap { paginationServerResponse(it) }
     }
 
     private fun getChatRoomFilter(queryParams: MultiValueMap<String, String>): ChatRoomFilter {

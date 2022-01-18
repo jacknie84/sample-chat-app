@@ -3,6 +3,7 @@ create table if not exists chat_room(
     category_id bigint,
     subject varchar(255),
     capacity integer,
+    `size` integer,
     created_date timestamp default current_timestamp,
     created_by varchar(255) default 'system'
 );

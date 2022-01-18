@@ -27,6 +27,11 @@ data class ChatRoom(
     var capacity: Int,
 
     /**
+     * 채팅방 현재 참여 인원 수
+     */
+    var size: Int = 0,
+
+    /**
      * 채팅방 생성 일시
      */
     var createdDate: LocalDateTime? = null,
