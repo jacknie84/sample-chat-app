@@ -8,12 +8,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.2.8",
     "@stomp/stompjs": "^6.1.2",
+    "@types/lodash": "^4.14.178",
     "@types/sockjs-client": "^1.5.1",
+    "lodash": "^4.17.21",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.24.0",
     "sockjs-client": "^1.5.2",
+    "swr": "^1.1.2",
     "websocket": "^1.0.34"
   },
   "devDependencies": {

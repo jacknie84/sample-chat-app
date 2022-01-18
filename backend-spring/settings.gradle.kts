@@ -8,3 +8,7 @@
  */
 
 rootProject.name = "backend-spring"
+
+include("rest-api")
+include("stomp-broker")
+include("domain")

@@ -11,6 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/rest-api" />
+            <option value="$PROJECT_DIR$/stomp-broker" />
           </set>
         </option>
       </GradleProjectSettings>
