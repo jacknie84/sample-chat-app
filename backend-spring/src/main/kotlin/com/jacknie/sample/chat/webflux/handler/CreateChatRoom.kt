@@ -1,4 +1,4 @@
-package com.jacknie.sample.chat.handler
+package com.jacknie.sample.chat.webflux.handler
 
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull

@@ -1,4 +1,4 @@
-package com.jacknie.sample.chat.handler
+package com.jacknie.sample.chat.webflux.handler
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest

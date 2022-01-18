@@ -1,7 +1,7 @@
 package com.jacknie.sample.chat.config
 
-import com.jacknie.sample.chat.handler.ChatCategoryHandler
-import com.jacknie.sample.chat.handler.ChatRoomHandler
+import com.jacknie.sample.chat.webflux.handler.ChatCategoryHandler
+import com.jacknie.sample.chat.webflux.handler.ChatRoomHandler
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.web.codec.CodecCustomizer
 import org.springframework.context.annotation.Bean
