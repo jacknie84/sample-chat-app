@@ -1,4 +1,4 @@
-package com.jacknie.sample.chat.handler
+package com.jacknie.sample.chat.webflux.handler
 
 import com.jacknie.sample.chat.model.ChatRoom
 import com.jacknie.sample.chat.model.ChatRoomFilter

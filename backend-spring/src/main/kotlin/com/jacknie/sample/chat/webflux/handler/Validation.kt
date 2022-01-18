@@ -1,4 +1,4 @@
-package com.jacknie.sample.chat.handler
+package com.jacknie.sample.chat.webflux.handler
 
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component

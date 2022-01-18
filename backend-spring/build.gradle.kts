@@ -7,35 +7,30 @@ plugins {
     kotlin("plugin.spring") version "1.6.10"
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
+repositories {
+    mavenCentral()
 }
 
-subprojects {
+dependencies {
+    implementation(platform(kotlin("bom")))
+    implementation(kotlin("stdlib"))
+    implementation(kotlin("reflect"))
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-rsocket")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("org.hibernate.validator:hibernate-validator")
+    implementation("io.r2dbc:r2dbc-h2")
 
-    apply { plugin("org.gradle.application") }
-    apply { plugin("org.gradle.idea") }
-    apply { plugin("org.springframework.boot") }
-    apply { plugin("io.spring.dependency-management") }
-    apply { plugin("org.jetbrains.kotlin.jvm") }
-    apply { plugin("org.jetbrains.kotlin.plugin.spring") }
+    runtimeOnly("com.h2database:h2")
 
-    dependencies {
-        implementation(platform(kotlin("bom")))
-        implementation(kotlin("stdlib"))
-        implementation(kotlin("reflect"))
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+}
 
-        developmentOnly("org.springframework.boot:spring-boot-devtools")
-    }
-
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs = freeCompilerArgs + listOf("-Xjsr305=strict", "-Xemit-jvm-type-annotations")
-            jvmTarget = "11"
-        }
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = freeCompilerArgs + listOf("-Xjsr305=strict", "-Xemit-jvm-type-annotations")
+        jvmTarget = "11"
     }
 }
 
